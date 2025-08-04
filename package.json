@@ -1,0 +1,19 @@
+{
+  "name": "ufal-atividades",
+  "version": "1.0.0",
+  "description": "CRUD de atividades com autenticação de administrador.",
+  "main": "app.js",
+"scripts": {
+  "start": "node app.js",
+  "test": "echo \"No test specified\" && exit 0"
+},
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express-session": "^1.17.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

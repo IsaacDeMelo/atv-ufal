@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Atividade</title>
+    <link rel="stylesheet" href="/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-white/20 backdrop-blur-sm">
+    <div class="flex flex-col items-center mb-8">
+      <span class="inline-flex items-center gap-2 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16v-4m0-4h.01" /></svg>
+        <span class="text-indigo-600 font-semibold tracking-wide">Administração</span>
+      </span>
+      <h1 class="text-3xl font-bold text-center text-gray-900 tracking-tight bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Nova Atividade</h1>
+    </div>
+    <form action="/atividades" method="POST" class="space-y-6">
+      <div class="flex flex-col gap-2">
+        <label for="materia" class="block text-sm font-medium text-gray-700">Matéria:</label>
+        <input type="text" id="materia" name="materia" placeholder="Matéria" required class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição:</label>
+        <textarea id="descricao" name="descricao" placeholder="Descrição" required rows="4" class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition resize-y"></textarea>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="nota" class="block text-sm font-medium text-gray-700">Nota (Se Houver):</label>
+        <input type="number" id="nota" name="nota" placeholder="Nota (Se Houver)" class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="dataEntrega" class="block text-sm font-medium text-gray-700">Data de Entrega:</label>
+        <input type="date" id="dataEntrega" name="dataEntrega" placeholder="Data de Entrega" class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
+      </div>
+      <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg shadow hover:from-indigo-700 hover:to-blue-700 transition">Salvar</button>
+    </form>
+    <div class="flex justify-end mt-8">
+      <a href="/" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg shadow hover:shadow-md hover:from-indigo-700 hover:to-blue-700 transition-all font-semibold">Voltar</a>
+    </div>
+  </div>
+</body>
+</html>
