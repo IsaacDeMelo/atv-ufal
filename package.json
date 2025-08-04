@@ -5,6 +5,7 @@
   "main": "app.js",
 "scripts": {
   "start": "node app.js",
+  "build": "echo \"Nothing to build\"",
   "test": "echo \"No test specified\" && exit 0"
 },
   "dependencies": {
