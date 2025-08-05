@@ -40,10 +40,26 @@
         <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium"><%= atividade.nota %></span>
       </div>
       <% } %>
+      <% if (atividade.anexo) { %>
+      <div>
+        <span class="block text-xs text-gray-500">Arquivo anexado</span>
+        <a href="/download/<%= atividade.anexo.fileId %>" style="max-width: 100%; border-radius: 20px;" class="inline-block bg-indigo-50 text-indigo-700 px-3 py-1 text-sm font-medium hover:bg-indigo-100 transition"><%= atividade.anexo.originalname %></a>
+      </div>
+      <% } %>
     </div>
-    <div class="flex justify-end mt-8">
+    <div class="flex justify-between mt-8 gap-2">
       <a href="/" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg shadow hover:shadow-md hover:from-indigo-700 hover:to-blue-700 transition-all font-semibold">Voltar</a>
+      <% if (typeof isAdmin !== 'undefined' && isAdmin) { %>
+        <a href="/edit/<%= atividade._id %>" class="px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-700 text-gray-900 rounded-lg shadow hover:shadow-md hover:from-yellow-600 hover:to-yellow-800 transition-all font-semibold">Editar</a>
+        <form action="/delete/<%= atividade._id %>" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar esta atividade?');" style="display:inline-block;">
+          <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg shadow hover:shadow-md hover:from-red-700 hover:to-red-900 transition-all font-semibold ml-2">Apagar</button>
+        </form>
+      <% } %>
     </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </body>
 </html>

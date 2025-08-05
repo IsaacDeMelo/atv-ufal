@@ -19,7 +19,7 @@
       </span>
       <h1 class="text-3xl font-bold text-center text-gray-900 tracking-tight bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Editar Atividade</h1>
     </div>
-    <form action="/edit/<%= atividade.id %>" method="POST" class="space-y-6">
+    <form action="/edit/<%= atividade._id %>" method="POST" class="space-y-6" enctype="multipart/form-data">
       <div class="flex flex-col gap-2">
         <label for="materia" class="block text-sm font-medium text-gray-700">Matéria:</label>
         <input type="text" id="materia" name="materia" value="<%= atividade.materia %>" required class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
@@ -34,7 +34,14 @@
       </div>
       <div class="flex flex-col gap-2">
         <label for="dataEntrega" class="block text-sm font-medium text-gray-700">Data de Entrega:</label>
-        <input type="date" id="dataEntrega" name="dataEntrega" value="<%= atividade.dataEntrega %>" class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
+        <input type="date" id="dataEntrega" name="dataEntrega" value="<%= atividade.dataEntrega %>" required min="<%= new Date().toISOString().split('T')[0] %>" class="mt-1 block w-full rounded-lg border border-gray-300 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-500 px-4 py-2 transition">
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="anexo" class="block text-sm font-medium text-gray-700">Anexar novo arquivo:</label>
+        <input type="file" id="anexo" name="anexo" class="mt-1 block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition" />
+        <% if (atividade.anexo) { %>
+          <span class="block text-xs text-gray-500 mt-2">Arquivo atual: <a href="/download/<%= atividade.anexo.fileId %>" target="_blank" class="text-indigo-600 underline"><%= atividade.anexo.originalname %></a></span>
+        <% } %>
       </div>
       <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg shadow hover:from-indigo-700 hover:to-blue-700 transition">Salvar</button>
     </form>
